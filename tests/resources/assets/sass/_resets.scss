@@ -1,0 +1,43 @@
+/* Some resets taken from http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+}
+
+strong {
+    font-weight: 500;
+}
+
+a,
+button {
+    color: inherit;
+}
+
+button {
+    overflow: visible;
+    border: 0;
+    font: inherit;
+    -webkit-font-smoothing: inherit;
+    letter-spacing: inherit;
+    background: none;
+    cursor: pointer;
+}
+
+::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}

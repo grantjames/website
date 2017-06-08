@@ -102,7 +102,7 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title'         => 'required',
-            'slug'          => 'required|alpha_dash|unique:posts,slug' . $post->id, // Create validator
+            'slug'          => 'required|alpha_dash|unique:posts,slug,' . $post->id, // Create validator
             'excerpt'       => 'required',
             'body'          => 'required',
             'category_id'   => 'required',
