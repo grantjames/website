@@ -25,6 +25,7 @@ class Post extends Model
     protected $fillable = [
         'title',
         'slug',
+        'excerpt',
         'body',
         'category_id',
         'published_at'
@@ -56,19 +57,22 @@ class Post extends Model
         });
     }
 
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = strtolower($value);
+    }
+
+    public function setBodyAttribute($value)
+    {
+        $this->attributes['body'] = $value;
+        $this->attributes['body_html'] = Markdown::convertToHtml($value);
+    }
 
     public function bodyContainsCode()
     {
         return strpos($this->body, '```') !== false;
     }
-
-    public function save(array $options = [])
-    {
-        $this->body_html = Markdown::convertToHtml($this->body);
-
-        return parent::save();
-    }
-
+    
     public function delete()
     {
         $this->tags()->detach();

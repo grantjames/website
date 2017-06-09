@@ -8,10 +8,21 @@ use GJames\Exceptions\CategoryNotEmptyException;
 class Category extends Model
 {
     public $timestamps = false;
+
+    protected $fillable = [
+        'name',
+        'colour',
+        'sort_order'
+    ];
     
     public function posts()
     {
         return $this->hasMany('GJames\Post');
+    }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strtolower($value);
     }
 
     // This is accessible via $this->darker_colour

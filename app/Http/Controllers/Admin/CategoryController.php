@@ -35,11 +35,7 @@ class CategoryController extends Controller
             'sort_order'=> 'required|integer'
         ]);
 
-        $category = new Category;
-        $category->name = strtolower($request->name);
-        $category->colour = $request->colour;
-        $category->sort_order = $request->sort_order;
-        $category->save();
+        Category::create($request->all());
 
         Session::flash('message', 'New category created');
 
@@ -72,9 +68,7 @@ class CategoryController extends Controller
             'sort_order'=> 'required|integer'
         ]);
 
-        $category->name = strtolower($request->name);
-        $category->colour = $request->colour;
-        $category->sort_order = $request->sort_order;
+        $category->fill($request->all());
         $category->save();
 
         Session::flash('message', 'Category updated.');

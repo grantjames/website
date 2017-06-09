@@ -4,6 +4,8 @@ namespace GJames\Http\Controllers\Admin;
 
 use GJames\Category;
 use GJames\Http\Controllers\Controller;
+use GJames\Http\Requests\StorePostRequest;
+use GJames\Http\Requests\UpdatePostRequest;
 use GJames\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -18,7 +20,6 @@ class PostController extends Controller
     public function index()
     {
         $published = Post::published()->simplePaginate(10);
-
         $unpublished = Post::unpublished()->get();
 
         return view('admin.posts.index', compact('published', 'unpublished'));
@@ -42,40 +43,13 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $this->validate($request, [
-            'title'         => 'required',
-            'slug'          => 'required|alpha_dash|unique:posts', // Create validator
-            'excerpt'       => 'required',
-            'body'          => 'required',
-            'category_id'   => 'required',
-            'published_at'  => 'date|nullable'
-        ]);
-
-        $post = new Post;
-        $post->title = $request->title;
-        $post->slug = strtolower($request->slug);
-        $post->excerpt = $request->excerpt;
-        $post->body = $request->body;
-        $post->category_id = $request->category_id;
-        $post->published_at = $request->published_at;
-        $post->save();
+        Post::create($request->all());
 
         Session::flash('message', 'New post created');
 
         return redirect('/admin/posts');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -98,23 +72,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $post)
     {
-        $this->validate($request, [
-            'title'         => 'required',
-            'slug'          => 'required|alpha_dash|unique:posts,slug,' . $post->id, // Create validator
-            'excerpt'       => 'required',
-            'body'          => 'required',
-            'category_id'   => 'required',
-            'published_at'  => 'date|nullable'
-        ]);
-
-        $post->title = $request->title;
-        $post->slug = strtolower($request->slug);
-        $post->excerpt = $request->excerpt;
-        $post->body = $request->body;
-        $post->category_id = $request->category_id;
-        $post->published_at = $request->published_at;
+        $post->fill($request->all());
         $post->save();
 
         Session::flash('message', 'Post updated');
