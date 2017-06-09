@@ -64,6 +64,25 @@
 	}
 }
 
+.pagination {
+	list-style: none;
+	width: 100%;
+	overflow: hidden;
+
+	li {
+		margin-left: 0;
+		font-size: 18px;
+	}
+
+	.older {
+		float: right;
+	}
+
+	.newer {
+
+	}
+}
+
 .footer {
 	background-color: #f2f2f2;
 	margin-top: 20px;
