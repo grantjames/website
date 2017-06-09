@@ -86,6 +86,8 @@ return [
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'The :attribute format is invalid.',
 
+    'hex_colour'           => 'The :attribute is not a valid hex colour',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

@@ -5,6 +5,7 @@ namespace GJames\Providers;
 use GJames\Category;
 use GJames\Tag;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,12 +17,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Provide the tags list and the categories list to the side bar
-
-        //
-        // Change these queries to "having" posts
-        //
-
         view()->composer('layouts.master', function ($view) {
             
             //
@@ -43,6 +38,10 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $view->with('categories_string', $categories_string);
+        });
+
+        Validator::extend('hex_colour', function ($attribute, $value, $parameters, $validator) {
+            return preg_match('/^#[a-fA-F0-9]{6}$/', $value);
         });
     }
 

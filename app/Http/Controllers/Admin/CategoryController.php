@@ -4,6 +4,8 @@ namespace GJames\Http\Controllers\Admin;
 
 use GJames\Category;
 use GJames\Http\Controllers\Controller;
+use GJames\Http\Requests\StoreCategoryRequest;
+use GJames\Http\Requests\UpdateCategoryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -27,14 +29,8 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        $this->validate($request, [
-            'name'      => 'required|unique:categories',
-            'colour'    => 'required', // Create validator
-            'sort_order'=> 'required|integer'
-        ]);
-
         Category::create($request->all());
 
         Session::flash('message', 'New category created');
@@ -60,14 +56,8 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $this->validate($request, [
-            'name'      => 'required|unique:categories,name,' . $category->id,
-            'colour'    => 'required', // Create validator
-            'sort_order'=> 'required|integer'
-        ]);
-
         $category->fill($request->all());
         $category->save();
 
