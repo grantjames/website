@@ -5,7 +5,7 @@
 	<div class="post">
 		<h1 class="post__title">{{ $post->title }}</h1>
 
-		<p class="post__meta">Posted at {{ $post->published_at->toFormattedDateString() }} in <a href="/category/{{ $post->category->name }}">{{ $post->category->name }}</a></p>
+		<p class="post__meta">Posted on {{ $post->published_at->toFormattedDateString() }} in <a href="/category/{{ $post->category->name }}">{{ $post->category->name }}</a></p>
 
 		<p class="post__excerpt">
 			{{ $post->excerpt }}
