@@ -27,5 +27,9 @@
         .btn:hover {
             background-color: {{ $current_category->darker_colour }};
         }
+
+        blockquote {
+            border-left-color: {{ $current_category->colour }};
+        }
     </style>
 @endif
