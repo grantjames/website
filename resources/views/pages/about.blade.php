@@ -5,7 +5,7 @@
 
 	<p>Grant is a software developer in Birmingham.</p>
 
-	<p>Graduating from university in 2009 with 1st in Computer Science, he jumped straight into the industry coding websites and, later, mobile applications too.</p>
+	<p>Graduating from university in 2009 with a 1st in Computer Science, he jumped straight into the industry coding websites and, later, mobile applications too.</p>
 
 	<p>He doesn't always write about himself in the third person, but when he does it's because he wants to sound like a robot, or to seem professional writing a bio like this. The human side of Grant likes <a href="/category/music">music</a> (both playing and listening to), <a href="/category/cooking">food</a> (cooking and eating) and spending time with his wife and son.</p>
 
