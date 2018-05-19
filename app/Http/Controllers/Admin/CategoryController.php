@@ -35,7 +35,7 @@ class CategoryController extends Controller
 
         Session::flash('message', 'New category created');
 
-        return redirect('/admin/categories');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -63,7 +63,7 @@ class CategoryController extends Controller
 
         Session::flash('message', 'Category updated.');
 
-        return redirect('/admin/categories');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -78,6 +78,6 @@ class CategoryController extends Controller
 
         Session::flash('message', 'Category deleted.');
 
-        return redirect('/admin/categories');
+        return redirect()->route('admin.categories.index');
     }
 }

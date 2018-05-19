@@ -34,6 +34,8 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        $this->redirectTo = '/' . config('app.admin_prefix');
+
         $this->middleware('guest')->except('logout');
     }
 }

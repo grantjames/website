@@ -41,13 +41,13 @@ Route::post('logout',                        'Auth\LoginController@logout')->nam
 Route::group([
         'middleware' => 'auth',
         'namespace'  => 'Admin',
-        'prefix'     => 'admin'
+        'prefix'     => env('APP_ADMIN_PREFIX', 'admin')
     ], function() {
         Route::get('/',                     'PostController@index');
 
-        Route::resource('posts',            'PostController');
-        Route::resource('categories',       'CategoryController', ['except' => ['show', 'create']]);
-        Route::resource('tags',             'TagController', ['except' => ['show', 'create']]);
+        Route::resource('posts',            'PostController', ['as' => 'admin']);
+        Route::resource('categories',       'CategoryController', ['as' => 'admin', 'except' => ['show', 'create']]);
+        Route::resource('tags',             'TagController', ['as' => 'admin', 'except' => ['show', 'create']]);
 });
 
 //

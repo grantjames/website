@@ -39,7 +39,7 @@ class TagController extends Controller
 
         Session::flash('message', 'New tag created');
 
-        return redirect('/admin/tags');
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -71,7 +71,7 @@ class TagController extends Controller
 
         Session::flash('message', 'Tag updated.');
 
-        return redirect('/admin/tags');
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -86,6 +86,6 @@ class TagController extends Controller
 
         Session::flash('message', 'Tag deleted and removed from related posts.');
 
-        return redirect('/admin/tags');
+        return redirect()->route('admin.tags.index');
     }
 }

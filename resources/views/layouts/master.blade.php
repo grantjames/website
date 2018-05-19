@@ -31,26 +31,21 @@
                     <span><a href="/category/{{ $current_category->name }}" class="header__section">{{ ucfirst($current_category->name) }}</a></span>
                 @endif
             </h2>
-            {{-- <p class="header__about">
-                <a href="/about">
-                    <i class="icon-user-o"></i> About
-                </a>
-            </p> --}}
             @if(empty($current_category))
                 <p class="header__lead">
                     {!! $categories_string !!}
                 </p>
             @endif
 
-            @if(Request::segment(1) == 'admin' && Auth::check())
+            @if(Request::segment(1) == config('app.admin_prefix') && Auth::check())
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                      {{ csrf_field() }}
                 </form>
 
                 <ul class="admin-list">
-                    <li><a href="/admin/posts" class="">Posts</a></li>
-                    <li><a href="/admin/categories" class="">Categories</a></li>
-                    {{-- <li><a href="/admin/tags" class="">Tags</a></li> --}}
+                    <li><a href="{{ route('admin.posts.index') }}" class="">Posts</a></li>
+                    <li><a href="{{ route('admin.categories.index') }}" class="">Categories</a></li>
+                    <li><a href="{{ route('admin.tags.index') }}" class="">Tags</a></li>
                     <li>|</li>
                     <li><a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                 </ul>

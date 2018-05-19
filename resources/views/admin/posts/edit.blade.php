@@ -4,7 +4,7 @@
 
 	<h1>Edit post: {{ $post->title }}</h1>
 
-	<form method="POST" action="/admin/posts/{{ $post->id }}">
+	<form method="POST" action="{{ route('admin.posts.update', $post->id) }}">
 		{{ method_field('PATCH') }}
 		@include('admin.posts.form')
 

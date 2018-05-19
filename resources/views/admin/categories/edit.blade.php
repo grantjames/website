@@ -4,7 +4,7 @@
 
 	<h1>Edit category: {{ $category->name }}</h1>
 
-	<form method="POST" action="/admin/categories/{{ $category->id }}">
+	<form method="POST" action="{{ route('admin.categories.update', $category->id) }}">
 		{{ method_field('PATCH') }}
 		@include('admin.categories.form')
 

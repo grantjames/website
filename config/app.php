@@ -55,6 +55,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Admin prefix
+    |--------------------------------------------------------------------------
+    |
+    | This is the route to use to get the to admin area. By default it's just "admin"
+    | but since that's an obvious choice it can be renamed here.
+    |
+    */
+
+    'admin_prefix' => env('APP_ADMIN_PREFIX', 'admin'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |

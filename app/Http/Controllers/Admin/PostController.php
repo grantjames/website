@@ -49,7 +49,7 @@ class PostController extends Controller
 
         Session::flash('message', 'New post created');
 
-        return redirect('/admin/posts');
+        return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -79,7 +79,7 @@ class PostController extends Controller
 
         Session::flash('message', 'Post updated');
 
-        return redirect('/admin/posts');
+        return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -94,6 +94,6 @@ class PostController extends Controller
 
         Session::flash('message', 'Post deleted.');
 
-        return redirect('/admin/posts');
+        return redirect()->route('admin.posts.index');
     }
 }

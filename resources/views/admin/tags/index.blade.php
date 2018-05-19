@@ -4,7 +4,7 @@
 
 	<h1>Tags</h1>
 
-	<form method="POST" action="/admin/tags">
+	<form method="POST" action="{{ route('admin.tags.store') }}">
 		@include('admin.tags.form')
 
 		<input type="submit" name="Create new tag">
@@ -18,10 +18,10 @@
 		</tr>
 		@foreach($tags as $tag)
 			<tr>
-				<td><a href="/admin/tags/{{ $tag->id }}/edit">{{ $tag->name }}</a></td>
+				<td><a href="{{ route('admin.tags.edit', $tag->id) }}">{{ $tag->name }}</a></td>
 				<td>{{ $tag->posts->count() }}</td>
 				<td>
-					<form method="post" action="/admin/tags/{{ $tag->id }}" onsubmit="return confirm('Are you sure you want to delete this tag?')">
+					<form method="post" action="{{ route('admin.tags.destroy', $tag->id) }}" onsubmit="return confirm('Are you sure you want to delete this tag?')">
 						{{ csrf_field() }}
 						{{ method_field('DELETE') }}
 						<input type="submit" value="Delete">
