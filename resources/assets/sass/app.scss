@@ -103,8 +103,8 @@
 
 	&__built-with {
 		text-align: right;
-		width: 50%;
-		float: right;
+		line-height: 50px;
+		margin-bottom: 0;
 	}
 }
 
@@ -182,8 +182,7 @@
 
 		&__built-with {
 			text-align: center;
-			float: none;
-			width: 100%;
+			line-height: 1.7;
 		}
 	}
 }
