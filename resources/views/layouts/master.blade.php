@@ -22,7 +22,7 @@
         </script>
     @endif
 
-    <div class="container">
+    <div class="main-container">
         <header class="header">
             <h2 class="header__breadcrumb">
                 <span><a href="/" class="header__brand">GJ</a></span>
@@ -31,47 +31,51 @@
                     <span><a href="/category/{{ $current_category->name }}" class="header__section">{{ ucfirst($current_category->name) }}</a></span>
                 @endif
             </h2>
-            @if(empty($current_category))
+            @if(Request::segment(1) == config('app.admin_prefix') && Auth::check())
+                <div class="header__lead">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        {{ csrf_field() }}
+                    </form>
+
+                    <ul class="admin-menu">
+                        <li><a href="{{ route('admin.posts.index') }}" class="">Posts</a></li>
+                        <li>|</li>
+                        <li><a href="{{ route('admin.categories.index') }}" class="">Categories</a></li>
+                        <li class="admin-menu__logout"><a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                    </ul>
+                </div>
+            @elseif (empty($current_category))
                 <p class="header__lead">
                     {!! $categories_string !!}
                 </p>
             @endif
 
-            @if(Request::segment(1) == config('app.admin_prefix') && Auth::check())
-                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                     {{ csrf_field() }}
-                </form>
-
-                <ul class="admin-list">
-                    <li><a href="{{ route('admin.posts.index') }}" class="">Posts</a></li>
-                    <li><a href="{{ route('admin.categories.index') }}" class="">Categories</a></li>
-                    <li><a href="{{ route('admin.tags.index') }}" class="">Tags</a></li>
-                    <li>|</li>
-                    <li><a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
-                </ul>
-            @endif
         </header>
 
     
-        <div style="color: green">
+        
             @if(Session::has('message'))
-                {{ Session::get('message') }}
+                <div style="color: green">
+                    {{ Session::get('message') }}
+                </div>
             @endif
-        </div>
+        
 
-        <div style="color: red">
+        
             @if($errors->any())
-                @foreach($errors->all() as $error)
-                    {{ $error }}<br>
-                @endforeach
+                <div style="color: red">
+                    @foreach($errors->all() as $error)
+                        {{ $error }}<br>
+                    @endforeach
+                </div>
             @endif
-        </div>
+        
 
         @yield('content')
     </div>
 
     <footer class="footer">
-        <div class="container">
+        <div class="main-container">
             <ul class="footer__icons">
                 <li>
                     <a href="/about">

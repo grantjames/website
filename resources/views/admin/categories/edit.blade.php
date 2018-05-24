@@ -8,7 +8,7 @@
 		{{ method_field('PATCH') }}
 		@include('admin.categories.form')
 
-		<input type="submit" name="Edit category">
+		<input type="submit" name="Edit category" class="btn">
 	</form>
 
 @endsection

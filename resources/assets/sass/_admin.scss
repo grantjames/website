@@ -2,12 +2,18 @@
 	display: none;
 }
 
-.admin-list {
-	margin-bottom: 20px;
-
+.admin-menu {
+	display: flex;
+	list-style: none;
+	font-style: normal;
+	
 	li {
-		display: inline;
-		list-style: none;
+		margin-left: 0;
 		margin-right: 10px;
+	}
+
+	&__logout {
+		margin: 0 !important;
+		margin-left: auto !important;
 	}
 }

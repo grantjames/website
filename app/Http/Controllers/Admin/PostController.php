@@ -21,7 +21,7 @@ class PostController extends Controller
     {
         $published = Post::published()->simplePaginate(10);
         $unpublished = Post::unpublished()->get();
-
+        
         return view('admin.posts.index', compact('published', 'unpublished'));
     }
 

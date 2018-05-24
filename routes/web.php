@@ -14,11 +14,11 @@ Route::group(['namespace' => 'Blog'], function() {
     // Categories and tags
     // With name/slug
     Route::get('/category/{category_name}',  'CategoryController@show');
-    Route::get('/tag/{tag_name}',            'TagController@show');
+    //Route::get('/tag/{tag_name}',            'TagController@show');
 
     // With category ID
     Route::get('/categories/{category}',     'CategoryController@show');
-    Route::get('/tags/{tag}',                'TagController@show');
+    //Route::get('/tags/{tag}',                'TagController@show');
 });
 
 Route::get('/about', function() {
@@ -33,7 +33,6 @@ Route::get('login',                          'Auth\LoginController@showLoginForm
 Route::post('login',                         'Auth\LoginController@login');
 Route::post('logout',                        'Auth\LoginController@logout')->name('logout');
 
-
 //
 // Admin routes
 //
@@ -46,8 +45,8 @@ Route::group([
         Route::get('/',                     'PostController@index');
 
         Route::resource('posts',            'PostController', ['as' => 'admin']);
-        Route::resource('categories',       'CategoryController', ['as' => 'admin', 'except' => ['show', 'create']]);
-        Route::resource('tags',             'TagController', ['as' => 'admin', 'except' => ['show', 'create']]);
+        Route::resource('categories',       'CategoryController', ['as' => 'admin', 'except' => ['show']]);
+        //Route::resource('tags',             'TagController', ['as' => 'admin', 'except' => ['show']]);
 });
 
 //

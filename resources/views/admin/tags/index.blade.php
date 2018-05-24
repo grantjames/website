@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h1>Tags</h1>
+	<h1 class="admin-page-header">Tags <small>Create new tags by adding them to a post</small></h1>
 
 	<form method="POST" action="{{ route('admin.tags.store') }}">
 		@include('admin.tags.form')

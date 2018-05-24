@@ -2,13 +2,7 @@
 
 @section('content')
 
-	<h1>Categories</h1>
-
-	<form method="POST" action="{{ route('admin.categories.store') }}">
-		@include('admin.categories.form')
-
-		<input type="submit" name="Create new category">
-	</form>
+	<h1 class="admin-page-header">Categories <a href="{{ route('admin.categories.create') }}" class="btn btn__small m__lm">Create new category</a></h1>
 
 	<table class="table">
 		<tr>
@@ -25,7 +19,7 @@
 						<form method="post" action="{{ route('admin.categories.destroy', $category->id) }}" onsubmit="return confirm('Are you sure you want to delete this category?')">
 							{{ csrf_field() }}
 							{{ method_field('DELETE') }}
-							<input type="submit" value="Delete">
+							<input type="submit" value="Delete" class="btn btn__small">
 						</form>
 					@endif
 				</td>

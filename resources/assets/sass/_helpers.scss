@@ -1,0 +1,17 @@
+.admin-page-header {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 20px;
+    border-bottom: 1px solid #942722;
+}
+
+.m {
+    &__lm {
+        margin-left: 10px;
+    }
+
+    &__rm {
+        margin-right: 10px;
+    }
+}
