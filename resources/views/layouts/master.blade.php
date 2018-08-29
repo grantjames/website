@@ -83,11 +83,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://twitter.com/gjames_dev" target="_blank">
-                        <i class="icon-twitter"></i>
-                    </a>
-                </li>
-                <li>
                     <a href="https://github.com/grantjames" target="_blank">
                         <i class="icon-github-circled"></i>
                     </a>

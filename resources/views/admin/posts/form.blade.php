@@ -45,18 +45,11 @@
 		<div class="col-6">
 			<p>
 				<label>
-					Tags<br>
-					
+					Publish date<br> <input type="text" name="published_at" value="{{ old('published_at', $post->published_at ?? '') }}" placeholder="Y-m-d H:i:s">
 				</label>
 			</p>
 		</div>
 	</div>
-
-	<p>
-		<label>
-			Publish date<br> <input type="text" name="published_at" value="{{ old('published_at', $post->published_at ?? '') }}" placeholder="Y-m-d H:i:s">
-		</label>
-	</p>
 
 @section('scripts')
 	<script>
