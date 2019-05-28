@@ -4,12 +4,12 @@
             border-top-color: {{ $current_category->colour }};
         }
 
-        h1,h2,h3 {
-            color: {{ $current_category->colour }};
-        }
-
         .header__breadcrumb, .header__brand {
             color: black;
+        }
+
+        h1,h2,h3 {
+            color: {{ $current_category->colour }};
         }
 
         a, .post-listing__title:hover, .header__section {

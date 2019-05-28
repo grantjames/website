@@ -9,13 +9,15 @@
 .header {
 	width: 100%;
 	overflow: hidden;
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #dadada;
+	margin-bottom: 10px;
 
 	&__breadcrumb {
 		font-weight: bold;
-		font-size: 40px;
+		font-size: 30px;
 		line-height: 50px;
 		float: left;
-		margin-bottom: 20px;
 	}
 
 	&__about {
@@ -26,8 +28,8 @@
 
 	&__lead {
 		font-style: italic;
-		font-size: 20px;
-		margin-bottom: 20px;
+		font-size: 18px;
+		margin-bottom: 10px;
 		clear: both;
 	}
 
@@ -35,6 +37,13 @@
 		font-size: 20px;
 		vertical-align: middle;
 	}
+}
+
+#theme-toggle {
+	line-height: 50px;
+	float: right;
+	font-size: 20px;
+	cursor: pointer;
 }
 
 .post-listing {
@@ -114,7 +123,8 @@
 
 .post {
 	&__title {
-
+		line-height: 1.5;
+		font-size: 28px;
 	}
 
 	&__meta {
@@ -162,10 +172,6 @@
 	}
 
 	.header {
-		&__about {
-			display: none;
-		}
-
 		&__lead {
 			font-size: 16px;
 		}
@@ -183,6 +189,44 @@
 		&__built-with {
 			text-align: center;
 			line-height: 1.7;
+		}
+	}
+}
+
+.dark-theme {
+	background-color: #20262e;
+	color: #efefef;
+
+	.header {
+		background-color: #1e2227;
+		border-bottom-color: #121518;
+	}
+
+	.header__breadcrumb, .header__brand {
+		color: #efefef;
+	}
+
+	.post-listing {
+		&__title {
+			color: #efefef;
+		}
+	
+		&__meta {
+			color: #dedede;
+		}
+	
+		&__snippet {
+			color: #cfcfcf;
+		}
+	}
+
+	.footer {
+		background-color: #1e2227;
+	}
+
+	.post {
+		&__meta {
+			color: #888
 		}
 	}
 }

@@ -22,8 +22,9 @@
         </script>
     @endif
 
-    <div class="main-container">
-        <header class="header">
+    
+    <header class="header">
+        <div class="main-container">
             <h2 class="header__breadcrumb">
                 <span><a href="/" class="header__brand">GJ</a></span>
                 @if( ! empty($current_category))
@@ -31,6 +32,9 @@
                     <span><a href="/category/{{ $current_category->name }}" class="header__section">{{ ucfirst($current_category->name) }}</a></span>
                 @endif
             </h2>
+
+            <i id="theme-toggle" class="icon-moon"></i>
+
             @if(Request::segment(1) == config('app.admin_prefix') && Auth::check())
                 <div class="header__lead">
                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
@@ -49,28 +53,24 @@
                     {!! $categories_string !!}
                 </p>
             @endif
-
-        </header>
-
+        </div>
+    </header>
     
-        
-            @if(Session::has('message'))
-                <div style="color: green">
-                    {{ Session::get('message') }}
-                </div>
-            @endif
-        
+    <div class="main-container">
+        @if(Session::has('message'))
+            <div style="color: green">
+                {{ Session::get('message') }}
+            </div>
+        @endif
 
+        @if($errors->any())
+            <div style="color: red">
+                @foreach($errors->all() as $error)
+                    {{ $error }}<br>
+                @endforeach
+            </div>
+        @endif
         
-            @if($errors->any())
-                <div style="color: red">
-                    @foreach($errors->all() as $error)
-                        {{ $error }}<br>
-                    @endforeach
-                </div>
-            @endif
-        
-
         @yield('content')
     </div>
 
@@ -102,5 +102,6 @@
     </footer>
     
     @yield('scripts')
+    <script src="/js/app.js"></script>
 </body>
 </html>
