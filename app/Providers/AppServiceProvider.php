@@ -38,6 +38,20 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $view->with('categories_string', $categories_string);
+
+            //
+            // Is a theme cookie set?
+            //
+
+            $theme = \Cookie::get('theme');
+            //dd($theme);
+            if ($theme != 'dark' && $theme != 'light') {
+                $theme = 'light';
+            }
+
+            
+
+            $view->with('theme', $theme);
         });
 
         Validator::extend('hex_colour', function ($attribute, $value, $parameters, $validator) {

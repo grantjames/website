@@ -9,7 +9,7 @@
 
     @include('partials.category_styles')
 </head>
-<body>
+<body class="{{ $theme . '-theme' }}">
     @if(Request::segment(1) != 'admin')
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -22,7 +22,6 @@
         </script>
     @endif
 
-    
     <header class="header">
         <div class="main-container">
             <h2 class="header__breadcrumb">
@@ -33,7 +32,7 @@
                 @endif
             </h2>
 
-            <i id="theme-toggle" class="icon-moon"></i>
+            <i id="theme-toggle" class="icon-{{ $theme == 'dark' ? 'sun-1' : 'moon' }}"></i>
 
             @if(Request::segment(1) == config('app.admin_prefix') && Auth::check())
                 <div class="header__lead">
