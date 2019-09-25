@@ -49,8 +49,6 @@ class AppServiceProvider extends ServiceProvider
                 $theme = 'light';
             }
 
-            
-
             $view->with('theme', $theme);
         });
 
