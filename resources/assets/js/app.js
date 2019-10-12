@@ -1,3 +1,7 @@
+//
+// Theme toggle
+//
+
 var toggle_icon = document.getElementById('theme-toggle');
 var body = document.getElementsByTagName('body')[0];
 var sun_class = 'icon-sun-1';
@@ -28,3 +32,22 @@ function setCookie(name, value) {
     var expires = "expires=" + d.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
+
+//
+// Quick category switcher toggle
+//
+
+var dropdown = document.getElementById('header__dropdown');
+var category_div = document.getElementById('quick-category-switcher');
+
+dropdown.addEventListener('click', function() {
+    if (category_div.style.display != 'block') {
+        category_div.style.display = 'block';
+        dropdown.classList.add('header__dropdown--opened');
+    }
+    else {
+        category_div.style.display = 'none';
+        dropdown.classList.remove('header__dropdown--opened');
+    }
+    
+});
