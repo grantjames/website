@@ -40,14 +40,16 @@ function setCookie(name, value) {
 var dropdown = document.getElementById('header__dropdown');
 var category_div = document.getElementById('quick-category-switcher');
 
-dropdown.addEventListener('click', function() {
-    if (category_div.style.display != 'block') {
-        category_div.style.display = 'block';
-        dropdown.classList.add('header__dropdown--opened');
-    }
-    else {
-        category_div.style.display = 'none';
-        dropdown.classList.remove('header__dropdown--opened');
-    }
-    
-});
+if (dropdown !== null) {
+    dropdown.addEventListener('click', function() {
+        if (category_div.style.display != 'block') {
+            category_div.style.display = 'block';
+            dropdown.classList.add('header__dropdown--opened');
+        }
+        else {
+            category_div.style.display = 'none';
+            dropdown.classList.remove('header__dropdown--opened');
+        }
+        
+    });
+}

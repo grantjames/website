@@ -57,6 +57,9 @@
 	&--opened .arrow {
 		border-top: 6px solid transparent;
 		border-bottom: 6px solid black;
+
+		position: relative;
+		top: -4px;
 	}
 }
 
@@ -242,9 +245,6 @@
 	.header__dropdown--opened .arrow {
 		border-bottom: 6px solid #efefef;
 		border-top: 6px solid transparent;
-
-		position: relative;
-		top: -4px;
 	}
 
 	.post-listing {
