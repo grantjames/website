@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Grant James</title>
     <title>
         @if ( ! empty($post) && empty($posts))
             {{ $post->title }}
