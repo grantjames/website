@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
             //
 
             $lead_categories = Category::orderBy('sort_order')->get()->all();
+            $view->with('categories', $lead_categories);
+
             $categories_string = '';
 
             if (count($lead_categories) > 1) {
@@ -48,8 +50,6 @@ class AppServiceProvider extends ServiceProvider
             if ($theme != 'dark' && $theme != 'light') {
                 $theme = 'light';
             }
-
-            
 
             $view->with('theme', $theme);
         });

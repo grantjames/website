@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}">
 
     @include('partials.category_styles')
 </head>
@@ -26,8 +26,22 @@
             <h2 class="header__breadcrumb">
                 <span><a href="/" class="header__brand">GJ</a></span>
                 @if( ! empty($current_category))
-                <i class="icon-right-open"></i>
-                    <span><a href="/category/{{ $current_category->name }}" class="header__section">{{ ucfirst($current_category->name) }}</a></span>
+                    <i class="icon-right-open"></i>
+                    <div style="display: inline-block;">
+                        <a href="/category/{{ $current_category->name }}" class="header__section">{{ ucfirst($current_category->name) }}</a>
+                        <div id="header__dropdown" class="header__dropdown">
+                            <div class="arrow"></div>
+                        </div>
+                        <div id="quick-category-switcher">
+                            @foreach($categories as $category)
+                                @if($category->id != $current_category->id)
+                                    <a href="/category/{{ $category->name }}" style="color: {{ $category->colour }}">
+                                        {{ ucfirst($category->name) }}
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
                 @endif
             </h2>
 
@@ -100,6 +114,6 @@
     </footer>
     
     @yield('scripts')
-    <script src="/js/app.js"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 </html>

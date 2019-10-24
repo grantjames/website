@@ -18,12 +18,14 @@
 		font-size: 30px;
 		line-height: 50px;
 		float: left;
+
+		i {
+			vertical-align: top;
+		}
 	}
 
-	&__about {
-		line-height: 50px;
-		font-size: 18px;
-		text-align: right;
+	&__brand {
+		vertical-align: top;
 	}
 
 	&__lead {
@@ -35,7 +37,29 @@
 
 	.icon-right-open {
 		font-size: 20px;
-		vertical-align: middle;
+	}
+}
+
+.header__dropdown {
+	display: inline-block;
+	cursor: pointer;
+	vertical-align: middle;
+
+	.arrow {
+		width: 0;
+		height: 0;
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-top: 6px solid black;
+		margin: 10px 5px;
+	}
+
+	&--opened .arrow {
+		border-top: 6px solid transparent;
+		border-bottom: 6px solid black;
+
+		position: relative;
+		top: -4px;
 	}
 }
 
@@ -44,6 +68,14 @@
 	float: right;
 	font-size: 20px;
 	cursor: pointer;
+}
+
+#quick-category-switcher {
+	display: none;
+
+	a {
+		display: block;
+	}
 }
 
 .post-listing {
@@ -195,7 +227,7 @@
 
 .dark-theme {
 	background-color: #20262e;
-	color: #efefef;
+	color: #d1d1d1;
 
 	.header {
 		background-color: #1e2227;
@@ -204,6 +236,15 @@
 
 	.header__breadcrumb, .header__brand {
 		color: #efefef;
+	}
+
+	.header__dropdown .arrow {
+		border-top: 6px solid #efefef;
+	}
+
+	.header__dropdown--opened .arrow {
+		border-bottom: 6px solid #efefef;
+		border-top: 6px solid transparent;
 	}
 
 	.post-listing {
