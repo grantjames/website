@@ -2,6 +2,15 @@
 <html>
 <head>
     <title>Grant James</title>
+    <title>
+        @if ( ! empty($post) && empty($posts))
+            {{ $post->title }}
+        @elseif ( ! empty($current_category))
+            Posts about {{ $current_category->name }}
+        @else
+            {{ 'Grant James - Software Developer from Birmingham, UK' }}
+        @endif
+    </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
