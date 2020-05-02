@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-        @if ( ! empty($post) && empty($posts))
+        @if ( ! empty($post) && (empty($posts) || empty($published) || empty(unpublished) ))
             {{ $post->title }}
         @elseif ( ! empty($current_category))
             Posts about {{ $current_category->name }}
