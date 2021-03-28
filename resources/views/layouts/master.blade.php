@@ -114,6 +114,11 @@
                         <i class="icon-linkedin-squared"></i>
                     </a>
                 </li>
+                <li>
+                    <a href="https://twitter.com/grantjame5" target="_blank">
+                        <i class="icon-twitter"></i>
+                    </a>
+                </li>
             </ul>
             
             <p class="footer__built-with">

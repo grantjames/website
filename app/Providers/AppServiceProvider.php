@@ -7,6 +7,7 @@ use GJames\Tag;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -57,6 +58,8 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('hex_colour', function ($attribute, $value, $parameters, $validator) {
             return preg_match('/^#[a-fA-F0-9]{6}$/', $value);
         });
+
+        Paginator::defaultSimpleView('vendor.pagination.simple-default');
     }
 
     /**
