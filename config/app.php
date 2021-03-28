@@ -175,6 +175,8 @@ return [
         // Third party service providers
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
 
+        GJames\Providers\ShortcodeServiceProvider::class
+
     ],
 
     /*
@@ -226,6 +228,8 @@ return [
 
         // Third party facades
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+
+        'ShortcodeHelpers' => GJames\Facades\ShortcodeHelpers::class,
 
     ],
 

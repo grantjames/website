@@ -65,6 +65,8 @@
                         <li><a href="{{ route('admin.posts.index') }}" class="">Posts</a></li>
                         <li>|</li>
                         <li><a href="{{ route('admin.categories.index') }}" class="">Categories</a></li>
+                        <li>|</li>
+                        <li><a href="{{ route('admin.shortcodes.index') }}" class="">Shortcodes</a></li>
                         <li class="admin-menu__logout"><a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                     </ul>
                 </div>
@@ -115,7 +117,7 @@
             </ul>
             
             <p class="footer__built-with">
-                Built with the <a href="http://www.laravel.com" target="_blank">Laravel</a> framework and hosted on <a href="http://www.digitalocean.com/?refcode=9eec9115a94a" target="_blank">DigitalOcean</a>
+                Software developer from Birmingham, UK</a>
             </p>
         </div>
         

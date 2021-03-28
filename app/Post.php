@@ -2,12 +2,13 @@
 
 namespace GJames;
 
-use Illuminate\Database\Eloquent\Model;
-use GrahamCampbell\Markdown\Facades\Markdown;
+use Route;
+use GJames\Tag;
 use Carbon\Carbon;
 use GJames\Category;
-use GJames\Tag;
-use Route;
+use ShortcodeHelpers;
+use Illuminate\Database\Eloquent\Model;
+use GrahamCampbell\Markdown\Facades\Markdown;
 
 class Post extends Model
 {
@@ -65,12 +66,13 @@ class Post extends Model
     public function setBodyAttribute($value)
     {
         $this->attributes['body'] = $value;
+
         $this->attributes['body_html'] = Markdown::convertToHtml($value);
     }
 
     public function bodyContainsCode()
     {
-        return strpos($this->body, '```') !== false;
+        return strpos(ShortcodeHelpers::ApplyShortcodes($this->body, false), '```') !== false;
     }
     
     public function delete()

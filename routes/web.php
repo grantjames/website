@@ -46,6 +46,7 @@ Route::group([
 
         Route::resource('posts',            'PostController', ['as' => 'admin']);
         Route::resource('categories',       'CategoryController', ['as' => 'admin', 'except' => ['show']]);
+        Route::resource('shortcodes',       'ShortcodeController', ['as' => 'admin', 'except' => ['show']]);
         //Route::resource('tags',             'TagController', ['as' => 'admin', 'except' => ['show']]);
 });
 

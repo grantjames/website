@@ -7,7 +7,7 @@
 
 	<p>Graduating from university in 2009 with a 1st in Computer Science, he jumped straight into the industry coding websites and, later, mobile applications too.</p>
 
-	<p>He doesn't always write about himself in the third person, but when he does it's because he wants to sound like a robot (or when he's trying to be professional and write a bio like this). The human side of Grant likes <a href="/category/music">music</a> (both playing and listening to), <a href="/category/cooking">food</a> (cooking and eating) and spending time with his wife and sons.</p>
+	<p>He doesn't always write about himself in the third person, but when he does it's because he wants to sound like a robot (or when he's trying to be professional and write a bio like this). The human side of Grant likes <a href="/category/music">music</a>, <a href="/category/cooking">cooking</a> and spending time with his wife and sons.</p>
 
 	<p>He is currently working as part of the Solution Development team at <a href="http://www.bcu.ac.uk" target="_new">Birmingham City University</a>.</p>
 

@@ -3,6 +3,7 @@
 namespace GJames\Http\Controllers\Blog;
 
 use GJames\Post;
+use ShortcodeHelpers;
 use Illuminate\Http\Request;
 use GJames\Http\Controllers\Controller;
 
@@ -29,6 +30,9 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $current_category = $post->category;
+
+        $post->body_html = ShortcodeHelpers::ApplyShortcodes($post->body_html);
+
         return view('blog.posts.show', compact('post', 'current_category'));
     }
 }
