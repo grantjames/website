@@ -31,7 +31,7 @@
 	<div id="disqus_thread"></div>
 	<script>
 		var disqus_config = function () {
-			this.page.url = '{{ url('/posts/' . $post->id) }}';
+			this.page.url = '{{ url('/blog/' . $post->id) }}';
 			this.page.identifier = '/posts/{{ $post->id }}';
 		};
 		(function() { // DON'T EDIT BELOW THIS LINE
