@@ -5,7 +5,7 @@
 	<h1>Edit shortcode: {{ $shortcode->name }}</h1>
 
 	<p>
-		<strong>Warning: changing the shortcode value will stop it from working in any posts where it is currently in use.</strong>
+		<strong>Warning: changing the shortcode identifier will stop it from working in any posts where it is currently in use.</strong>
 	</p>
 	
 	<form method="POST" action="{{ route('admin.shortcodes.update', $shortcode->id) }}">

@@ -7,7 +7,7 @@ use GJames\Shortcode;
 
 class ShortcodeHelpers
 {
-    public function ApplyShortcodes($content, $toHtml = true)
+    public function ApplyShortcodes($content, $toHtml = false)
     {
         // Get shortcodes in content (more efficient than looping over all shortcodes)
         if (preg_match_all('/\[(.*?)\]/', $content, $matches)) {

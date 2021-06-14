@@ -12,20 +12,8 @@
 		</p>
 
 		<div class="post__body">
-			{!! $post->body_html !!}
+			{!! $post->getHTMLBody() !!}
 		</div>
-
-		{{--
-		@if($tags = $post->tags)
-			<h2>Tags:</h2>
-
-			<ul>
-				@foreach($tags as $tag)
-					<li><a href="/tag/{{ $tag->name }}">{{ $tag->name }}</a></li>
-				@endforeach
-			</ul>
-		@endif
-		--}}
 	</div>
 
 	<div id="disqus_thread"></div>

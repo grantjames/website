@@ -2,6 +2,8 @@
 
 namespace GJames\Http\Controllers\Admin;
 
+use Cache;
+use GJames\Post;
 use GJames\Shortcode;
 use Illuminate\Http\Request;
 use GJames\Http\Controllers\Controller;
@@ -72,6 +74,7 @@ class ShortcodeController extends Controller
         $shortcode->save();
 
         Session::flash('message', 'Shortcode updated.');
+        Cache::store(Post::BODY_CACHE_STORE)->flush();
 
         return redirect()->route('admin.shortcodes.index');
     }
@@ -87,6 +90,7 @@ class ShortcodeController extends Controller
         $shortcode->delete();
 
         Session::flash('message', 'Shortcode deleted.');
+        Cache::store(Post::BODY_CACHE_STORE)->flush();
 
         return redirect()->route('admin.shortcodes.index');
     }

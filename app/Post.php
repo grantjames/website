@@ -3,6 +3,7 @@
 namespace GJames;
 
 use Route;
+use Cache;
 use GJames\Tag;
 use Carbon\Carbon;
 use GJames\Category;
@@ -31,6 +32,8 @@ class Post extends Model
         'category_id',
         'published_at'
     ];
+
+    const BODY_CACHE_STORE = 'post_body_html';
 
     public function category()
     {
@@ -63,21 +66,36 @@ class Post extends Model
         $this->attributes['slug'] = strtolower($value);
     }
 
-    public function setBodyAttribute($value)
+    public function getBodyCacheKey()
     {
-        $this->attributes['body'] = $value;
+        return "post_{$this->id}_body_cache";
+    }
 
-        $this->attributes['body_html'] = Markdown::convertToHtml($value);
+    public function getHTMLBody()
+    {
+        return Cache::store(self::BODY_CACHE_STORE)->rememberForever($this->getBodyCacheKey(), function () {
+            return Markdown::convertToHtml(
+                ShortcodeHelpers::ApplyShortcodes($this->body));
+        });
     }
 
     public function bodyContainsCode()
     {
-        return strpos(ShortcodeHelpers::ApplyShortcodes($this->body, false), '```') !== false;
+        return strpos($this->body, '```') !== false;
+    }
+
+    public function save(array $options = [])
+    {
+        Cache::forget($this->getBodyCacheKey());
+
+        return parent::save($options);
     }
     
     public function delete()
     {
-        $this->tags()->detach();
+        //$this->tags()->detach();
+
+        Cache::forget($this->getBodyCacheKey());
 
         return parent::delete();
     }

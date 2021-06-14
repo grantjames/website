@@ -31,8 +31,6 @@ class PostController extends Controller
     {
         $current_category = $post->category;
 
-        $post->body_html = ShortcodeHelpers::ApplyShortcodes($post->body_html);
-
         return view('blog.posts.show', compact('post', 'current_category'));
     }
 }
